@@ -9,9 +9,7 @@ function getMovieList() {
       console.log(data);
       getMovieHtml(data.Search);
     })
-    .catch(() => {
-      console.error("errorororooror");
-    });
+    
 }
 
 searchBtn.addEventListener("click", getMovieList);
