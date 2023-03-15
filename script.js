@@ -3,13 +3,12 @@ const searchInp = document.getElementById("search-input");
 const moviesSection = document.getElementById("movies-section");
 
 function getMovieList() {
-  fetch(`http://www.omdbapi.com/?s=${searchInp.value}=&apikey=d3abac8f`)
+  fetch(`https://www.omdbapi.com/?s=${searchInp.value}=&apikey=d3abac8f`)
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
       getMovieHtml(data.Search);
     })
-    
 }
 
 searchBtn.addEventListener("click", getMovieList);
