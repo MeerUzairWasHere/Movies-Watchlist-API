@@ -3,16 +3,25 @@ const searchInp = document.getElementById("search-input");
 const moviesSection = document.getElementById("movies-section");
 
 function getMovieList() {
-  moviesSection.innerHTML = ``;
-  fetch(`https://www.omdbapi.com/?s=${searchInp.value}=&apikey=d3abac8f`)
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
-      getMovieHtml(data.Search);
-    });
+  if (searchInp.value !== ``) {
+    moviesSection.innerHTML = ``;
+    fetch(`https://www.omdbapi.com/?s=${searchInp.value}=&apikey=d3abac8f`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        getMovieHtml(data.Search);
+      })
+      .catch( console.log(`Movie not found!`))
+  }
 }
 
 searchBtn.addEventListener("click", getMovieList);
+
+searchInp.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    getMovieList();
+  }
+});
 
 function getMovieHtml(data) {
   for (let item of data) {
