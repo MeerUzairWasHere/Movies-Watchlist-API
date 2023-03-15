@@ -1,19 +1,20 @@
 const searchBtn = document.getElementById("search-btn");
 const searchInp = document.getElementById("search-input");
-const moviesSection = document.getElementById("movies-section")
+const moviesSection = document.getElementById("movies-section");
 
 function getMovieList() {
   fetch(`http://www.omdbapi.com/?s=${searchInp.value}=&apikey=d3abac8f`)
     .then((res) => res.json())
     .then((data) => {
-        console.log(data);
+      console.log(data);
       getMovieHtml(data.Search);
+    })
+    .catch(() => {
+      console.error("errorororooror");
     });
 }
 
 searchBtn.addEventListener("click", getMovieList);
-
-
 
 function getMovieHtml(data) {
   for (let item of data) {
@@ -22,9 +23,9 @@ function getMovieHtml(data) {
       .then((MovieData) => {
         console.log(MovieData);
 
-        let movieCardHtml = ``
+        let movieCardHtml = ``;
 
-        movieCardHtml += `
+        movieCardHtml = `
         <div  id="movie-card" class="movie-card">
                             <img src="${MovieData.Poster}"
                                 alt="">
@@ -57,10 +58,9 @@ function getMovieHtml(data) {
                                 </div>
 
                             </div>
-        `
-        moviesSection.innerHTML += movieCardHtml
-
+        `;
+        moviesSection.innerHTML += movieCardHtml;
+        searchInp.value = ``
       });
   }
 }
-
