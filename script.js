@@ -6,6 +6,7 @@ function getMovieList() {
   fetch(`http://www.omdbapi.com/?s=${searchInp.value}=&apikey=d3abac8f`)
     .then((res) => res.json())
     .then((data) => {
+        console.log(data);
       getMovieHtml(data.Search);
     });
 }
@@ -36,10 +37,10 @@ function getMovieHtml(data) {
                                         <span class="rating" id="rating">${MovieData.imdbRating}</span>
                                     </div>
                                 </div>
-
+                                            
                                 <div class="movie-sub-title flex">
                                     <span>
-                                        ${MovieData.Runtime} min
+                                        ${MovieData.Runtime}
                                     </span>
                                     <span>
                                         ${MovieData.Genre}

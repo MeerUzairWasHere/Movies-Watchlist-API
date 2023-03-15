@@ -55,19 +55,19 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-
+  overflow: hidden;
   margin: 0 auto;
 
   display: flex;
   flex-direction: row;
   align-items: center;
 
-  width: 90%;
+  width: 80%;
   height: 38px;
 
   /* white */
 
-  background: #ffffff;
+  background: #2e2e2f;
   /* shadow/sm */
 
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
@@ -82,7 +82,8 @@ body {
   align-items: center;
   padding: 9px 13px;
 
-  width: 342px;
+  width: 200px;
+
   height: 38px;
 
   background: #2e2e2f;
