@@ -2,14 +2,14 @@ const searchBtn = document.getElementById("search-btn");
 const searchInp = document.getElementById("search-input");
 const moviesSection = document.getElementById("movies-section");
 
-function getMovieList(e) {
-    e.preventDefault()
+function getMovieList() {
+  moviesSection.innerHTML = ``;
   fetch(`https://www.omdbapi.com/?s=${searchInp.value}=&apikey=d3abac8f`)
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
       getMovieHtml(data.Search);
-    })
+    });
 }
 
 searchBtn.addEventListener("click", getMovieList);
@@ -58,7 +58,7 @@ function getMovieHtml(data) {
                             </div>
         `;
         moviesSection.innerHTML += movieCardHtml;
-        searchInp.value = ``
+        searchInp.value = ``;
       });
   }
 }
