@@ -2,7 +2,8 @@ const searchBtn = document.getElementById("search-btn");
 const searchInp = document.getElementById("search-input");
 const moviesSection = document.getElementById("movies-section");
 
-function getMovieList() {
+function getMovieList(e) {
+    e.preventDefault()
   fetch(`https://www.omdbapi.com/?s=${searchInp.value}=&apikey=d3abac8f`)
     .then((res) => res.json())
     .then((data) => {
