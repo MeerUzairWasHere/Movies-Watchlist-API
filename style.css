@@ -179,18 +179,30 @@ span {
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
-  font-size: 0.625rem;
+  font-size: 0.875rem;
   line-height: 20px;
   color: #ffffff;
 }
 
-.movie-body {
+.movie-body span {
   width: 100%;
   padding-bottom: 1.875em;
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
-  font-size: 0.875rem;
+  font-size:  0.875rem;
   line-height: 20px;
   color: #a5a5a5;
+}
+
+
+
+@media (max-width: 480px) {
+  .movie-body span{
+    font-size: 0.625rem;
+  }
+
+  .movie-sub-title span{
+    font-size: 0.550rem;
+  }
 }
